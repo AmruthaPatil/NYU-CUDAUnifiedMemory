@@ -1,0 +1,425 @@
+rm -f q1 q2 q3 *.o
+g++ -o q1 q1.cpp -std=c++11
+/usr/local/cuda/bin/nvcc -o q2 q2.cu -L/usr/local/cuda/lib64 -L/usr/local/cuda/samples/common/lib/linux/x86_64 -O3 
+/usr/local/cuda/bin/nvcc -o q3 q3.cu -L/usr/local/cuda/lib64 -L/usr/local/cuda/samples/common/lib/linux/x86_64 -O3 
+make: 'q3' is up to date.
+K: 1, Grid size: 1, Block size: 1
+==1927004== NVPROF is profiling process 1927004, command: ./q3 1 1 1
+Max error: 0
+---------------------------------------------------------------------------------
+==1927004== Profiling application: ./q3 1 1 1
+==1927004== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  71.082ms         1  71.082ms  71.082ms  71.082ms  add(int, float*, float*)
+      API calls:   60.07%  112.23ms         2  56.113ms  18.005us  112.21ms  cudaMallocManaged
+                   38.05%  71.083ms         1  71.083ms  71.083ms  71.083ms  cudaDeviceSynchronize
+                    1.34%  2.5121ms         1  2.5121ms  2.5121ms  2.5121ms  cudaLaunchKernel
+                    0.22%  404.47us         1  404.47us  404.47us  404.47us  cuDeviceTotalMem
+                    0.19%  354.40us         2  177.20us  157.78us  196.62us  cudaFree
+                    0.11%  213.57us       114  1.8730us     120ns  95.164us  cuDeviceGetAttribute
+                    0.00%  7.5750us         1  7.5750us  7.5750us  7.5750us  cuDeviceGetName
+                    0.00%  5.9280us         1  5.9280us  5.9280us  5.9280us  cuDeviceGetPCIBusId
+                    0.00%  1.1970us         3     399ns     190ns     801ns  cuDeviceGetCount
+                    0.00%     711ns         2     355ns     168ns     543ns  cuDeviceGet
+                    0.00%     301ns         1     301ns     301ns     301ns  cuModuleGetLoadingMode
+                    0.00%     228ns         1     228ns     228ns     228ns  cuDeviceGetUuid
+
+==1927004== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+      48  170.67KB  4.0000KB  0.9961MB  8.000000MB  767.5160us  Host To Device
+      24  170.67KB  4.0000KB  0.9961MB  4.000000MB  343.8370us  Device To Host
+      12         -         -         -           -  1.285945ms  Gpu page fault groups
+Total CPU Page faults: 36
+K: 5, Grid size: 1, Block size: 1
+==1927018== NVPROF is profiling process 1927018, command: ./q3 1 1 5
+Max error: 0
+---------------------------------------------------------------------------------
+==1927018== Profiling application: ./q3 1 1 5
+==1927018== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  329.61ms         1  329.61ms  329.61ms  329.61ms  add(int, float*, float*)
+      API calls:   78.33%  329.61ms         1  329.61ms  329.61ms  329.61ms  cudaDeviceSynchronize
+                   21.15%  88.989ms         2  44.495ms  20.483us  88.969ms  cudaMallocManaged
+                    0.38%  1.5962ms         2  798.09us  661.18us  935.00us  cudaFree
+                    0.09%  372.26us         1  372.26us  372.26us  372.26us  cudaLaunchKernel
+                    0.05%  210.87us       114  1.8490us     123ns  93.160us  cuDeviceGetAttribute
+                    0.00%  7.4180us         1  7.4180us  7.4180us  7.4180us  cuDeviceGetName
+                    0.00%  4.6410us         1  4.6410us  4.6410us  4.6410us  cuDeviceGetPCIBusId
+                    0.00%  3.7780us         1  3.7780us  3.7780us  3.7780us  cuDeviceTotalMem
+                    0.00%  1.2380us         3     412ns     171ns     887ns  cuDeviceGetCount
+                    0.00%     597ns         2     298ns     180ns     417ns  cuDeviceGet
+                    0.00%     298ns         1     298ns     298ns     298ns  cuModuleGetLoadingMode
+                    0.00%     216ns         1     216ns     216ns     216ns  cuDeviceGetUuid
+
+==1927018== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+     240  170.67KB  4.0000KB  0.9961MB  40.00000MB  3.833158ms  Host To Device
+     120  170.67KB  4.0000KB  0.9961MB  20.00000MB  1.712882ms  Device To Host
+      60         -         -         -           -  6.677428ms  Gpu page fault groups
+Total CPU Page faults: 180
+K: 10, Grid size: 1, Block size: 1
+==1927032== NVPROF is profiling process 1927032, command: ./q3 1 1 10
+Max error: 0
+---------------------------------------------------------------------------------
+==1927032== Profiling application: ./q3 1 1 10
+==1927032== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  539.00ms         1  539.00ms  539.00ms  539.00ms  add(int, float*, float*)
+      API calls:   85.45%  539.00ms         1  539.00ms  539.00ms  539.00ms  cudaDeviceSynchronize
+                   13.96%  88.081ms         2  44.041ms  25.289us  88.056ms  cudaMallocManaged
+                    0.50%  3.1381ms         2  1.5690ms  1.2670ms  1.8711ms  cudaFree
+                    0.06%  372.14us         1  372.14us  372.14us  372.14us  cudaLaunchKernel
+                    0.03%  205.14us       114  1.7990us     123ns  92.602us  cuDeviceGetAttribute
+                    0.00%  7.5580us         1  7.5580us  7.5580us  7.5580us  cuDeviceGetName
+                    0.00%  4.8750us         1  4.8750us  4.8750us  4.8750us  cuDeviceGetPCIBusId
+                    0.00%  3.8990us         1  3.8990us  3.8990us  3.8990us  cuDeviceTotalMem
+                    0.00%  1.1660us         3     388ns     159ns     819ns  cuDeviceGetCount
+                    0.00%     607ns         2     303ns     177ns     430ns  cuDeviceGet
+                    0.00%     255ns         1     255ns     255ns     255ns  cuModuleGetLoadingMode
+                    0.00%     211ns         1     211ns     211ns     211ns  cuDeviceGetUuid
+
+==1927032== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+     480  170.67KB  4.0000KB  0.9961MB  80.00000MB  7.611735ms  Host To Device
+     240  170.67KB  4.0000KB  0.9961MB  40.00000MB  3.425964ms  Device To Host
+     120         -         -         -           -  12.19068ms  Gpu page fault groups
+Total CPU Page faults: 360
+K: 50, Grid size: 1, Block size: 1
+==1927046== NVPROF is profiling process 1927046, command: ./q3 1 1 50
+Max error: 0
+---------------------------------------------------------------------------------
+==1927046== Profiling application: ./q3 1 1 50
+==1927046== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  2.69327s         1  2.69327s  2.69327s  2.69327s  add(int, float*, float*)
+      API calls:   96.38%  2.69330s         1  2.69330s  2.69330s  2.69330s  cudaDeviceSynchronize
+                    3.04%  84.958ms         2  42.479ms  21.923us  84.936ms  cudaMallocManaged
+                    0.55%  15.476ms         2  7.7381ms  6.1201ms  9.3561ms  cudaFree
+                    0.01%  368.15us         1  368.15us  368.15us  368.15us  cudaLaunchKernel
+                    0.01%  213.53us       114  1.8730us     125ns  93.088us  cuDeviceGetAttribute
+                    0.00%  8.6350us         1  8.6350us  8.6350us  8.6350us  cuDeviceGetName
+                    0.00%  5.0610us         1  5.0610us  5.0610us  5.0610us  cuDeviceGetPCIBusId
+                    0.00%  3.9600us         1  3.9600us  3.9600us  3.9600us  cuDeviceTotalMem
+                    0.00%  1.1570us         3     385ns     162ns     829ns  cuDeviceGetCount
+                    0.00%     559ns         2     279ns     185ns     374ns  cuDeviceGet
+                    0.00%     253ns         1     253ns     253ns     253ns  cuModuleGetLoadingMode
+                    0.00%     206ns         1     206ns     206ns     206ns  cuDeviceGetUuid
+
+==1927046== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+    2400  170.67KB  4.0000KB  0.9961MB  400.0000MB  38.11583ms  Host To Device
+    1200  170.67KB  4.0000KB  0.9961MB  200.0000MB  17.13109ms  Device To Host
+     600         -         -         -           -  60.43677ms  Gpu page fault groups
+Total CPU Page faults: 1800
+K: 100, Grid size: 1, Block size: 1
+==1927061== NVPROF is profiling process 1927061, command: ./q3 1 1 100
+Max error: 0
+---------------------------------------------------------------------------------
+==1927061== Profiling application: ./q3 1 1 100
+==1927061== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  5.38679s         1  5.38679s  5.38679s  5.38679s  add(int, float*, float*)
+      API calls:   97.88%  5.38681s         1  5.38681s  5.38681s  5.38681s  cudaDeviceSynchronize
+                    1.54%  84.861ms         2  42.430ms  22.340us  84.838ms  cudaMallocManaged
+                    0.57%  31.145ms         2  15.572ms  12.196ms  18.949ms  cudaFree
+                    0.01%  379.68us         1  379.68us  379.68us  379.68us  cudaLaunchKernel
+                    0.00%  206.91us       114  1.8150us     128ns  91.216us  cuDeviceGetAttribute
+                    0.00%  8.1740us         1  8.1740us  8.1740us  8.1740us  cuDeviceGetName
+                    0.00%  5.3260us         1  5.3260us  5.3260us  5.3260us  cuDeviceGetPCIBusId
+                    0.00%  3.8190us         1  3.8190us  3.8190us  3.8190us  cuDeviceTotalMem
+                    0.00%  1.2200us         3     406ns     173ns     842ns  cuDeviceGetCount
+                    0.00%     499ns         2     249ns     145ns     354ns  cuDeviceGet
+                    0.00%     255ns         1     255ns     255ns     255ns  cuModuleGetLoadingMode
+                    0.00%     205ns         1     205ns     205ns     205ns  cuDeviceGetUuid
+
+==1927061== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+    4800  170.67KB  4.0000KB  0.9961MB  800.0000MB  76.22548ms  Host To Device
+    2400  170.67KB  4.0000KB  0.9961MB  400.0000MB  34.26666ms  Device To Host
+    1200         -         -         -           -  121.2428ms  Gpu page fault groups
+Total CPU Page faults: 3600
+K: 1, Grid size: 1, Block size: 256
+==1927076== NVPROF is profiling process 1927076, command: ./q3 1 256 1
+Max error: 0
+---------------------------------------------------------------------------------
+==1927076== Profiling application: ./q3 1 256 1
+==1927076== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  1.9383ms         1  1.9383ms  1.9383ms  1.9383ms  add(int, float*, float*)
+      API calls:   96.81%  84.707ms         2  42.353ms  17.284us  84.689ms  cudaMallocManaged
+                    2.22%  1.9393ms         1  1.9393ms  1.9393ms  1.9393ms  cudaDeviceSynchronize
+                    0.38%  331.07us         2  165.54us  142.65us  188.43us  cudaFree
+                    0.33%  289.20us         1  289.20us  289.20us  289.20us  cudaLaunchKernel
+                    0.24%  212.02us       114  1.8590us     123ns  97.605us  cuDeviceGetAttribute
+                    0.01%  8.4840us         1  8.4840us  8.4840us  8.4840us  cuDeviceGetName
+                    0.01%  5.2250us         1  5.2250us  5.2250us  5.2250us  cuDeviceGetPCIBusId
+                    0.00%  3.7880us         1  3.7880us  3.7880us  3.7880us  cuDeviceTotalMem
+                    0.00%  1.1320us         3     377ns     161ns     806ns  cuDeviceGetCount
+                    0.00%     551ns         2     275ns     141ns     410ns  cuDeviceGet
+                    0.00%     262ns         1     262ns     262ns     262ns  cuModuleGetLoadingMode
+                    0.00%     210ns         1     210ns     210ns     210ns  cuDeviceGetUuid
+
+==1927076== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+      48  170.67KB  4.0000KB  0.9961MB  8.000000MB  758.2960us  Host To Device
+      24  170.67KB  4.0000KB  0.9961MB  4.000000MB  339.9660us  Device To Host
+      12         -         -         -           -  1.241815ms  Gpu page fault groups
+Total CPU Page faults: 36
+K: 5, Grid size: 1, Block size: 256
+==1927090== NVPROF is profiling process 1927090, command: ./q3 1 256 5
+Max error: 0
+---------------------------------------------------------------------------------
+==1927090== Profiling application: ./q3 1 256 5
+==1927090== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  9.5713ms         1  9.5713ms  9.5713ms  9.5713ms  add(int, float*, float*)
+      API calls:   88.20%  88.104ms         2  44.052ms  19.857us  88.084ms  cudaMallocManaged
+                    9.58%  9.5716ms         1  9.5716ms  9.5716ms  9.5716ms  cudaDeviceSynchronize
+                    1.60%  1.5935ms         2  796.74us  661.21us  932.28us  cudaFree
+                    0.39%  389.03us         1  389.03us  389.03us  389.03us  cudaLaunchKernel
+                    0.21%  212.96us       114  1.8680us     124ns  92.465us  cuDeviceGetAttribute
+                    0.01%  8.4750us         1  8.4750us  8.4750us  8.4750us  cuDeviceGetName
+                    0.01%  5.6930us         1  5.6930us  5.6930us  5.6930us  cuDeviceGetPCIBusId
+                    0.00%  4.2280us         1  4.2280us  4.2280us  4.2280us  cuDeviceTotalMem
+                    0.00%  1.2700us         3     423ns     173ns     918ns  cuDeviceGetCount
+                    0.00%     581ns         2     290ns     163ns     418ns  cuDeviceGet
+                    0.00%     278ns         1     278ns     278ns     278ns  cuModuleGetLoadingMode
+                    0.00%     212ns         1     212ns     212ns     212ns  cuDeviceGetUuid
+
+==1927090== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+     240  170.67KB  4.0000KB  0.9961MB  40.00000MB  3.801541ms  Host To Device
+     120  170.67KB  4.0000KB  0.9961MB  20.00000MB  1.714171ms  Device To Host
+      61         -         -         -           -  6.055288ms  Gpu page fault groups
+Total CPU Page faults: 180
+K: 10, Grid size: 1, Block size: 256
+==1927104== NVPROF is profiling process 1927104, command: ./q3 1 256 10
+Max error: 0
+---------------------------------------------------------------------------------
+==1927104== Profiling application: ./q3 1 256 10
+==1927104== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  18.965ms         1  18.965ms  18.965ms  18.965ms  add(int, float*, float*)
+      API calls:   78.84%  84.965ms         2  42.483ms  19.211us  84.946ms  cudaMallocManaged
+                   17.60%  18.967ms         1  18.967ms  18.967ms  18.967ms  cudaDeviceSynchronize
+                    2.91%  3.1315ms         2  1.5658ms  1.2628ms  1.8687ms  cudaFree
+                    0.34%  371.60us         1  371.60us  371.60us  371.60us  cudaLaunchKernel
+                    0.29%  317.14us       114  2.7810us     126ns  199.00us  cuDeviceGetAttribute
+                    0.01%  8.0110us         1  8.0110us  8.0110us  8.0110us  cuDeviceGetName
+                    0.01%  5.8480us         1  5.8480us  5.8480us  5.8480us  cuDeviceGetPCIBusId
+                    0.00%  4.0330us         1  4.0330us  4.0330us  4.0330us  cuDeviceTotalMem
+                    0.00%  1.5780us         3     526ns     163ns  1.2440us  cuDeviceGetCount
+                    0.00%     640ns         2     320ns     182ns     458ns  cuDeviceGet
+                    0.00%     269ns         1     269ns     269ns     269ns  cuModuleGetLoadingMode
+                    0.00%     214ns         1     214ns     214ns     214ns  cuDeviceGetUuid
+
+==1927104== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+     480  170.67KB  4.0000KB  0.9961MB  80.00000MB  7.611856ms  Host To Device
+     240  170.67KB  4.0000KB  0.9961MB  40.00000MB  3.425932ms  Device To Host
+     120         -         -         -           -  12.03573ms  Gpu page fault groups
+Total CPU Page faults: 360
+K: 50, Grid size: 1, Block size: 256
+==1927118== NVPROF is profiling process 1927118, command: ./q3 1 256 50
+Max error: 0
+---------------------------------------------------------------------------------
+==1927118== Profiling application: ./q3 1 256 50
+==1927118== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  105.53ms         1  105.53ms  105.53ms  105.53ms  add(int, float*, float*)
+      API calls:   49.90%  105.53ms         1  105.53ms  105.53ms  105.53ms  cudaDeviceSynchronize
+                   41.86%  88.536ms         2  44.268ms  21.178us  88.515ms  cudaMallocManaged
+                    7.95%  16.820ms         2  8.4102ms  6.7328ms  10.088ms  cudaFree
+                    0.18%  375.51us         1  375.51us  375.51us  375.51us  cudaLaunchKernel
+                    0.10%  205.32us       114  1.8010us     130ns  91.220us  cuDeviceGetAttribute
+                    0.00%  8.2320us         1  8.2320us  8.2320us  8.2320us  cuDeviceGetName
+                    0.00%  5.0680us         1  5.0680us  5.0680us  5.0680us  cuDeviceGetPCIBusId
+                    0.00%  4.1870us         1  4.1870us  4.1870us  4.1870us  cuDeviceTotalMem
+                    0.00%  1.2790us         3     426ns     176ns     895ns  cuDeviceGetCount
+                    0.00%     629ns         2     314ns     175ns     454ns  cuDeviceGet
+                    0.00%     285ns         1     285ns     285ns     285ns  cuModuleGetLoadingMode
+                    0.00%     192ns         1     192ns     192ns     192ns  cuDeviceGetUuid
+
+==1927118== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+    2400  170.67KB  4.0000KB  0.9961MB  400.0000MB  38.49331ms  Host To Device
+    1200  170.67KB  4.0000KB  0.9961MB  200.0000MB  17.22706ms  Device To Host
+     602         -         -         -           -  60.52508ms  Gpu page fault groups
+Total CPU Page faults: 1800
+K: 100, Grid size: 1, Block size: 256
+==1927134== NVPROF is profiling process 1927134, command: ./q3 1 256 100
+Max error: 0
+---------------------------------------------------------------------------------
+==1927134== Profiling application: ./q3 1 256 100
+==1927134== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  195.22ms         1  195.22ms  195.22ms  195.22ms  add(int, float*, float*)
+      API calls:   61.91%  195.22ms         1  195.22ms  195.22ms  195.22ms  cudaDeviceSynchronize
+                   27.96%  88.150ms         2  44.075ms  20.696us  88.130ms  cudaMallocManaged
+                    9.84%  31.041ms         2  15.520ms  12.244ms  18.797ms  cudaFree
+                    0.16%  509.62us       114  4.4700us     120ns  396.11us  cuDeviceGetAttribute
+                    0.12%  376.96us         1  376.96us  376.96us  376.96us  cudaLaunchKernel
+                    0.00%  7.8870us         1  7.8870us  7.8870us  7.8870us  cuDeviceGetName
+                    0.00%  5.1320us         1  5.1320us  5.1320us  5.1320us  cuDeviceGetPCIBusId
+                    0.00%  4.3140us         1  4.3140us  4.3140us  4.3140us  cuDeviceTotalMem
+                    0.00%  1.1490us         3     383ns     166ns     809ns  cuDeviceGetCount
+                    0.00%     662ns         2     331ns     189ns     473ns  cuDeviceGet
+                    0.00%     311ns         1     311ns     311ns     311ns  cuModuleGetLoadingMode
+                    0.00%     222ns         1     222ns     222ns     222ns  cuDeviceGetUuid
+
+==1927134== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+    4800  170.67KB  4.0000KB  0.9961MB  800.0000MB  76.34662ms  Host To Device
+    2400  170.67KB  4.0000KB  0.9961MB  400.0000MB  34.26762ms  Device To Host
+    1210         -         -         -           -  120.7035ms  Gpu page fault groups
+Total CPU Page faults: 3600
+K: 1, Grid size: 16, Block size: 256
+==1927157== NVPROF is profiling process 1927157, command: ./q3 16 256 1
+Max error: 0
+---------------------------------------------------------------------------------
+==1927157== Profiling application: ./q3 16 256 1
+==1927157== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  1.3858ms         1  1.3858ms  1.3858ms  1.3858ms  add(int, float*, float*)
+      API calls:   97.57%  89.449ms         2  44.725ms  18.494us  89.431ms  cudaMallocManaged
+                    1.51%  1.3871ms         1  1.3871ms  1.3871ms  1.3871ms  cudaDeviceSynchronize
+                    0.35%  323.24us         2  161.62us  145.36us  177.88us  cudaFree
+                    0.31%  288.77us         1  288.77us  288.77us  288.77us  cudaLaunchKernel
+                    0.22%  204.65us       114  1.7950us     124ns  91.334us  cuDeviceGetAttribute
+                    0.01%  7.8700us         1  7.8700us  7.8700us  7.8700us  cuDeviceGetName
+                    0.01%  5.4310us         1  5.4310us  5.4310us  5.4310us  cuDeviceGetPCIBusId
+                    0.00%  4.5190us         1  4.5190us  4.5190us  4.5190us  cuDeviceTotalMem
+                    0.00%  1.4430us         3     481ns     180ns  1.0620us  cuDeviceGetCount
+                    0.00%     598ns         2     299ns     174ns     424ns  cuDeviceGet
+                    0.00%     289ns         1     289ns     289ns     289ns  cuModuleGetLoadingMode
+                    0.00%     189ns         1     189ns     189ns     189ns  cuDeviceGetUuid
+
+==1927157== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+      48  170.67KB  16.000KB  0.9844MB  8.000000MB  765.5630us  Host To Device
+      24  170.67KB  4.0000KB  0.9961MB  4.000000MB  340.1560us  Device To Host
+      12         -         -         -           -  1.334232ms  Gpu page fault groups
+Total CPU Page faults: 36
+K: 5, Grid size: 16, Block size: 256
+==1927175== NVPROF is profiling process 1927175, command: ./q3 16 256 5
+Max error: 0
+---------------------------------------------------------------------------------
+==1927175== Profiling application: ./q3 16 256 5
+==1927175== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  6.5962ms         1  6.5962ms  6.5962ms  6.5962ms  add(int, float*, float*)
+      API calls:   90.61%  84.883ms         2  42.442ms  19.904us  84.863ms  cudaMallocManaged
+                    7.04%  6.5982ms         1  6.5982ms  6.5982ms  6.5982ms  cudaDeviceSynchronize
+                    1.70%  1.5890ms         2  794.52us  655.94us  933.11us  cudaFree
+                    0.40%  377.63us         1  377.63us  377.63us  377.63us  cudaLaunchKernel
+                    0.23%  211.57us       114  1.8550us     121ns  97.329us  cuDeviceGetAttribute
+                    0.01%  7.8250us         1  7.8250us  7.8250us  7.8250us  cuDeviceGetName
+                    0.01%  4.9200us         1  4.9200us  4.9200us  4.9200us  cuDeviceGetPCIBusId
+                    0.00%  4.2510us         1  4.2510us  4.2510us  4.2510us  cuDeviceTotalMem
+                    0.00%  1.2900us         3     430ns     169ns     947ns  cuDeviceGetCount
+                    0.00%     616ns         2     308ns     173ns     443ns  cuDeviceGet
+                    0.00%     361ns         1     361ns     361ns     361ns  cuDeviceGetUuid
+                    0.00%     273ns         1     273ns     273ns     273ns  cuModuleGetLoadingMode
+
+==1927175== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+     240  170.67KB  16.000KB  0.9844MB  40.00000MB  3.838285ms  Host To Device
+     120  170.67KB  4.0000KB  0.9961MB  20.00000MB  1.712086ms  Device To Host
+      60         -         -         -           -  6.354744ms  Gpu page fault groups
+Total CPU Page faults: 180
+K: 10, Grid size: 16, Block size: 256
+==1927189== NVPROF is profiling process 1927189, command: ./q3 16 256 10
+Max error: 0
+---------------------------------------------------------------------------------
+==1927189== Profiling application: ./q3 16 256 10
+==1927189== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  13.124ms         1  13.124ms  13.124ms  13.124ms  add(int, float*, float*)
+      API calls:   83.45%  84.972ms         2  42.486ms  21.072us  84.951ms  cudaMallocManaged
+                   12.89%  13.125ms         1  13.125ms  13.125ms  13.125ms  cudaDeviceSynchronize
+                    3.06%  3.1196ms         2  1.5598ms  1.2612ms  1.8584ms  cudaFree
+                    0.37%  377.84us         1  377.84us  377.84us  377.84us  cudaLaunchKernel
+                    0.21%  208.90us       114  1.8320us     127ns  92.928us  cuDeviceGetAttribute
+                    0.01%  8.6780us         1  8.6780us  8.6780us  8.6780us  cuDeviceGetName
+                    0.01%  5.2590us         1  5.2590us  5.2590us  5.2590us  cuDeviceGetPCIBusId
+                    0.00%  4.6150us         1  4.6150us  4.6150us  4.6150us  cuDeviceTotalMem
+                    0.00%  1.3170us         3     439ns     176ns     955ns  cuDeviceGetCount
+                    0.00%     628ns         2     314ns     170ns     458ns  cuDeviceGet
+                    0.00%     282ns         1     282ns     282ns     282ns  cuModuleGetLoadingMode
+                    0.00%     211ns         1     211ns     211ns     211ns  cuDeviceGetUuid
+
+==1927189== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+     481  170.31KB  4.0000KB  0.9844MB  80.00000MB  7.684840ms  Host To Device
+     240  170.67KB  4.0000KB  0.9961MB  40.00000MB  3.426444ms  Device To Host
+     121         -         -         -           -  12.71949ms  Gpu page fault groups
+Total CPU Page faults: 360
+K: 50, Grid size: 16, Block size: 256
+==1927203== NVPROF is profiling process 1927203, command: ./q3 16 256 50
+Max error: 0
+---------------------------------------------------------------------------------
+==1927203== Profiling application: ./q3 16 256 50
+==1927203== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  66.592ms         1  66.592ms  66.592ms  66.592ms  add(int, float*, float*)
+      API calls:   49.77%  84.995ms         2  42.498ms  22.159us  84.973ms  cudaMallocManaged
+                   39.00%  66.595ms         1  66.595ms  66.595ms  66.595ms  cudaDeviceSynchronize
+                   10.86%  18.539ms         2  9.2695ms  7.6029ms  10.936ms  cudaFree
+                    0.22%  378.62us         1  378.62us  378.62us  378.62us  cudaLaunchKernel
+                    0.14%  244.67us       114  2.1460us     130ns  120.79us  cuDeviceGetAttribute
+                    0.00%  7.8270us         1  7.8270us  7.8270us  7.8270us  cuDeviceGetName
+                    0.00%  5.5680us         1  5.5680us  5.5680us  5.5680us  cuDeviceGetPCIBusId
+                    0.00%  4.0630us         1  4.0630us  4.0630us  4.0630us  cuDeviceTotalMem
+                    0.00%  1.3030us         3     434ns     213ns     838ns  cuDeviceGetCount
+                    0.00%     542ns         2     271ns     159ns     383ns  cuDeviceGet
+                    0.00%     500ns         1     500ns     500ns     500ns  cuDeviceGetUuid
+                    0.00%     298ns         1     298ns     298ns     298ns  cuModuleGetLoadingMode
+
+==1927203== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+    2402  170.52KB  4.0000KB  0.9844MB  400.0000MB  38.89878ms  Host To Device
+    1200  170.67KB  4.0000KB  0.9961MB  200.0000MB  17.34075ms  Device To Host
+     600         -         -         -           -  63.49816ms  Gpu page fault groups
+Total CPU Page faults: 1800
+K: 100, Grid size: 16, Block size: 256
+==1927217== NVPROF is profiling process 1927217, command: ./q3 16 256 100
+Max error: 0
+---------------------------------------------------------------------------------
+==1927217== Profiling application: ./q3 16 256 100
+==1927217== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  137.99ms         1  137.99ms  137.99ms  137.99ms  add(int, float*, float*)
+      API calls:   52.51%  137.99ms         1  137.99ms  137.99ms  137.99ms  cudaDeviceSynchronize
+                   34.99%  91.964ms         2  45.982ms  20.655us  91.943ms  cudaMallocManaged
+                   12.27%  32.252ms         2  16.126ms  12.708ms  19.545ms  cudaFree
+                    0.15%  382.15us         1  382.15us  382.15us  382.15us  cudaLaunchKernel
+                    0.08%  206.31us       114  1.8090us     124ns  91.899us  cuDeviceGetAttribute
+                    0.00%  8.6410us         1  8.6410us  8.6410us  8.6410us  cuDeviceGetName
+                    0.00%  4.7350us         1  4.7350us  4.7350us  4.7350us  cuDeviceGetPCIBusId
+                    0.00%  3.6990us         1  3.6990us  3.6990us  3.6990us  cuDeviceTotalMem
+                    0.00%  1.2510us         3     417ns     178ns     877ns  cuDeviceGetCount
+                    0.00%     565ns         2     282ns     155ns     410ns  cuDeviceGet
+                    0.00%     266ns         1     266ns     266ns     266ns  cuModuleGetLoadingMode
+                    0.00%     206ns         1     206ns     206ns     206ns  cuDeviceGetUuid
+
+==1927217== Unified Memory profiling result:
+Device "Quadro RTX 8000 (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+    4442  170.52KB  4.0000KB  0.9844MB  739.6875MB  72.64210ms  Host To Device
+    2400  170.67KB  4.0000KB  0.9961MB  400.0000MB  34.32988ms  Device To Host
+    1202         -         -         -           -  132.3097ms  Gpu page fault groups
+Total CPU Page faults: 3600

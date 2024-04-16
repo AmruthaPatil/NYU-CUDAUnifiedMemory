@@ -1,0 +1,15 @@
+rm -f q1 q2 q3 *.o
+g++ -o q1 q1.cpp -std=c++11
+/usr/local/cuda/bin/nvcc -o q2 q2.cu -L/usr/local/cuda/lib64 -L/usr/local/cuda/samples/common/lib/linux/x86_64 -O3 
+/usr/local/cuda/bin/nvcc -o q3 q3.cu -L/usr/local/cuda/lib64 -L/usr/local/cuda/samples/common/lib/linux/x86_64 -O3 
+make: Nothing to be done for 'all'.
+K: 1 million, Time: 0.002779 (sec)
+Max error: 0
+K: 5 million, Time: 0.013958 (sec)
+Max error: 0
+K: 10 million, Time: 0.027924 (sec)
+Max error: 0
+K: 50 million, Time: 0.139885 (sec)
+Max error: 0
+K: 100 million, Time: 0.279607 (sec)
+Max error: 0
