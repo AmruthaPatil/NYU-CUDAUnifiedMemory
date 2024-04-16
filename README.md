@@ -27,12 +27,14 @@ The tasks are divided as follows:
     - Single thread: Poor performance due to limited parallelism.
     - 256 threads in one block: Moderate improvements.
     - Multiple blocks with 256 threads each: Best performance, fully utilizing GPU capabilities.
-  ![Logo](Images/CPUvsGPU.png)
+
+![Logo](Images/CPUvsGPU.png)
 
 - **GPU with Unified Memory:**
   - Generally slower than non-unified scenarios due to overhead from automatic data migration.
   - Maintains better consistency across different computational loads.
-  ![Logo](Images/CPUvsGPUUnifiedMemory.png)
+  
+![Logo](Images/CPUvsGPUUnifiedMemory.png)
 
 ## Installation and Setup
 Ensure you have the NVIDIA CUDA Toolkit installed and configured correctly. The code is compatible with CUDA version 10.0 or higher.
