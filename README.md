@@ -27,7 +27,7 @@ The tasks are divided as follows:
     - Single thread: Poor performance due to limited parallelism.
     - 256 threads in one block: Moderate improvements.
     - Multiple blocks with 256 threads each: Best performance, fully utilizing GPU capabilities.
-    ![Logo](Images/CPUvsGPU.png)
+  ![Logo](Images/CPUvsGPU.png)
 
 - **GPU with Unified Memory:**
   - Generally slower than non-unified scenarios due to overhead from automatic data migration.
